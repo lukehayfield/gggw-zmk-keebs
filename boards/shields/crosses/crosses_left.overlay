@@ -26,7 +26,7 @@
     reg = <0>;
     spi-max-frequency = <2000000>;
     irq-gpios = <&gpio0 20 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-    cpi = <800>;
+    cpi = <400>;
     xy-swap;
     evt-type = <INPUT_EV_REL>;
     x-input-code = <INPUT_REL_X>;
@@ -44,7 +44,7 @@
   input-processors
     = <&zip_y_scaler (-1) 1>
     , <&zip_xy_to_scroll_mapper>
-    , <&zip_scroll_scaler 1 2>
+    , <&zip_scroll_scaler 1 8>
 	, <&zip_ble_report_rate_limit>;
 };
 
