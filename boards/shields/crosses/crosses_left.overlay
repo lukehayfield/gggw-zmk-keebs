@@ -28,15 +28,18 @@
     irq-gpios = <&gpio0 20 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
     cpi = <200>;
     xy-swap;
-	invert-y;
+    invert-y;
     evt-type = <INPUT_EV_REL>;
     x-input-code = <INPUT_REL_X>;
     y-input-code = <INPUT_REL_Y>;
     force-awake;
-    /* keep the sensor awake while ZMK activity state is ACTIVE,
-        fallback to normal downshift mode after ZMK goes into IDLE / SLEEP mode.
-        thus, the sensor would be a `wakeup-source` */
   };
+};
+
+// 🔧 Slow down scroll (this is the important fix)
+&zip_xy_to_scroll_mapper {
+    x-scale = <8>;
+    y-scale = <8>;
 };
 
 // Overrides for the input-split child node
@@ -44,7 +47,7 @@
   device = <&trackball_peripheral>;
   input-processors
     = <&zip_xy_to_scroll_mapper>
-		, <&zip_ble_report_rate_limit>;
+    , <&zip_ble_report_rate_limit>;
 };
 
 &pro_micro_i2c {
