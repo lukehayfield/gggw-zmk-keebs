@@ -38,8 +38,8 @@
 
 // 🔧 Slow down scroll (this is the important fix)
 &zip_xy_to_scroll_mapper {
-    x-scale = <8>;
-    y-scale = <8>;
+    x-scale = <20>;
+    y-scale = <20>;
 };
 
 // Overrides for the input-split child node
