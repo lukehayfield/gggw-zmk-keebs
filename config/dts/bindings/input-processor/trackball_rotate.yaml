@@ -1,2 +1,0 @@
-description: Trackball rotation processor
-compatible: "zmk,input-processor-trackball-rotate"
