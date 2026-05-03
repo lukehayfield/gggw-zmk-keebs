@@ -111,4 +111,8 @@
     compatible = "zmk,input-listener";
     status = "disabled";
   };
+
+  trackball_rotate: trackball_rotate {
+	compatible = "zmk,input-processor-trackball-rotate";
+  };
 };
