@@ -46,7 +46,7 @@
     xy-swap;
     x-invert;
     y-invert;
-    rotation-degrees = <15>;
+    rotation-degrees = <13>;
     evt-type = <INPUT_EV_REL>;
     x-input-code = <INPUT_REL_X>;
     y-input-code = <INPUT_REL_Y>;
