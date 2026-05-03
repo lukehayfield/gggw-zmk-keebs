@@ -62,8 +62,7 @@
   status = "okay";
   device = <&trackball_central>;
 	input-processors 
-		= <&trackball_rotate>
-		, <&zip_ble_report_rate_limit>;
+		= <&zip_ble_report_rate_limit>;
 };
 
 &pro_micro_i2c {
