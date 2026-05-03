@@ -2,7 +2,7 @@
 #include <zmk/input_processor.h>
 #include <zmk/split/bluetooth/central.h>
 
-#define SIN_ANGLE 0.087f  // ~sin(5°)
+#define ROTATE 0.087f  // ~5 degrees
 
 static int trackball_rotate_process(struct zmk_input_processor *proc,
                                     struct zmk_input_event *evt) {
@@ -13,18 +13,15 @@ static int trackball_rotate_process(struct zmk_input_processor *proc,
     float x = evt->rel.x;
     float y = evt->rel.y;
 
-    // Detect which half we are on
-    bool is_right = IS_ENABLED(CONFIG_ZMK_SPLIT_ROLE_CENTRAL);
+    bool is_central = IS_ENABLED(CONFIG_ZMK_SPLIT_ROLE_CENTRAL);
 
-    if (is_left) {
-        // LEFT: +5°
-        evt->rel.x = x - (y * SIN_ANGLE);
-        evt->rel.y = y + (x * SIN_ANGLE);
-    } else {
-        // RIGHT: -5°
-        evt->rel.x = x + (y * SIN_ANGLE);
-        evt->rel.y = y - (x * SIN_ANGLE);
-    }
+    float dir = is_central ? -1.0f : 1.0f;
+
+    float new_x = x - (y * ROTATE * dir);
+    float new_y = y + (x * ROTATE * dir);
+
+    evt->rel.x = new_x;
+    evt->rel.y = new_y;
 
     return 0;
 }
