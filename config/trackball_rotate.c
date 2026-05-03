@@ -1,7 +1,7 @@
 #include <zephyr/device.h>
 #include <zmk/input_processor.h>
 
-#define ROTATE 0.087f  // ~5 degrees
+#define ROTATE 0.087f
 
 static int trackball_rotate_process(struct zmk_input_processor *proc,
                                     struct zmk_input_event *evt) {
@@ -18,8 +18,4 @@ static int trackball_rotate_process(struct zmk_input_processor *proc,
     return 0;
 }
 
-static struct zmk_input_processor_api trackball_rotate_api = {
-    .process = trackball_rotate_process,
-};
-
-ZMK_INPUT_PROCESSOR_DEFINE(trackball_rotate, &trackball_rotate_api);
+ZMK_INPUT_PROCESSOR(trackball_rotate, trackball_rotate_process);
