@@ -10,12 +10,14 @@ manifest:
       url-base: https://github.com/badjeff
     - name: caksoylar
       url-base: https://github.com/caksoylar
+    - name: lukehayfield
+      url-base: https://github.com/lukehayfield
   projects:
     - name: zmk
       remote: zmkfirmware
       import: app/west.yml
     - name: zmk-pmw3610-driver
-      remote: efogdev
+      remote: lukehayfield
       revision: zephyr-4.1
     - name: zmk-report-rate-limit
       remote: efogdev
