@@ -40,7 +40,6 @@
   device = <&trackball_peripheral>;
   input-processors
     = <&zip_x_scaler (-1) 1>
-	, <&trackball_rotate>
     , <&zip_xy_to_scroll_mapper>
 	, <&zip_ble_report_rate_limit>;
 };
